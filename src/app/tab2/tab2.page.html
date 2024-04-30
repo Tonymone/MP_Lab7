@@ -1,17 +1,54 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 2
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+  <ion-header [translucent]="true">
     <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
+      <ion-title class="header-title">
+        UserPortal
+      </ion-title>
+      <ion-icon style="margin-right: 20px;" slot="end" [name]="themeToggle ? 'moon-outline': 'sunny-outline'" (click)="toggleChange()"></ion-icon>
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <ion-content [fullscreen]="true">
+
+    <!-- Display fetched information -->
+    <ion-card *ngIf="fetchedData.length > 0; else noUsers" class="data-card">
+      <ion-card-header>
+        <ion-card-title class="card-title">
+          Fetched Information
+        </ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list lines="none">
+          <ion-item *ngFor="let user of fetchedData" class="user-item">
+            <ion-label>
+              <h2 class="name">{{ user.name }}</h2>
+              <div class="infoo">Email:
+                <span class="info">{{ user.email }}</span>
+              </div>
+              <div class="infoo">Username:
+              <span class="info">{{ user.username }}</span>
+              </div>
+            </ion-label>
+            <ion-icon name="create-outline" (click)="editUserDetails(user)" style="margin: 5px;"></ion-icon>
+            <ion-button (click)="deleteUser(user.username)" color="danger" slot="end">
+              <ion-icon name="trash-bin-outline"></ion-icon>
+            </ion-button>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- If fetchedData is empty -->
+    <ng-template #noUsers>
+      <ion-card style="margin-top: 300px;">
+        <ion-card-header>
+          <ion-card-title>
+            No user present
+          </ion-card-title>
+        </ion-card-header>
+      </ion-card>
+    </ng-template>
+
+  </ion-content>
+
 </ion-content>

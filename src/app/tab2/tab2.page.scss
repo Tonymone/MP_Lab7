@@ -1,0 +1,37 @@
+  /* Style for the card title */
+  .card-title {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  /* Style for the user name */
+  .name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #007bff; /* Adjust color as needed */
+  }
+  
+  /* Style for user information */
+  .info {
+    font-size: 14px;
+    color: #a1a1a1; /* Adjust color as needed */
+  }
+  .infoo {
+    font-size: 14px;
+    color: #7e7e7e; /* Adjust color as needed */
+  }
+  
+  /* Style for the card */
+  .data-card {
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Style for user item */
+  .user-item {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee; /* Add a separator between items */
+  }
+  
